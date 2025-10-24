@@ -1,5 +1,5 @@
 # HackMTY
-HackMTY, project made by: \n
+HackMTY, project made by:
 Ismael Alvarez Rodriguez
 Juan Pablo Garcia Villareal
 Albert Gerardo Constantino
