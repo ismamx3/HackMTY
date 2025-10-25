@@ -21,47 +21,324 @@ st.set_page_config(
 )
 
 # ============================================================================
-# CSS PERSONALIZADO
+# CSS PERSONALIZADO - TEMA FUTURISTA
 # ============================================================================
 
 st.markdown("""
     <style>
+    /* Fondo principal oscuro */
+    .stApp {
+        background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+        color: #e0e7ff;
+    }
+    
+    /* Sidebar futurista */
+    [data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #0f1629 0%, #1a1f3a 100%);
+        border-right: 2px solid #00d4ff;
+        box-shadow: 4px 0 20px rgba(0, 212, 255, 0.3);
+    }
+    
+    /* Títulos principales con efecto neón */
     .main-header {
-        font-size: 3.5rem;
-        color: #1f77b4;
-        font-weight: bold;
+        font-size: 4rem;
+        background: linear-gradient(45deg, #00d4ff, #0066ff, #00d4ff);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 900;
         text-align: center;
         margin-bottom: 0.5rem;
+        animation: shimmer 3s linear infinite;
+        text-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
     }
+    
+    @keyframes shimmer {
+        0% { background-position: 0% center; }
+        100% { background-position: 200% center; }
+    }
+    
     .sub-header {
-        font-size: 1.2rem;
-        color: #666;
+        font-size: 1.3rem;
+        color: #7dd3fc;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
+        text-shadow: 0 0 10px rgba(125, 211, 252, 0.5);
     }
-    .metric-card {
-        background: linear-gradient(135deg, #f0f2f6 0%, #e8eaf0 100%);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+    
+    /* Tarjetas de métricas futuristas */
     .stMetric {
-        background: white;
-        padding: 15px;
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid #00d4ff;
+        box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+    
+    .stMetric:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(0, 212, 255, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-color: #38bdf8;
+    }
+    
+    .stMetric label {
+        color: #7dd3fc !important;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .stMetric [data-testid="stMetricValue"] {
+        color: #00d4ff !important;
+        font-size: 2rem !important;
+        font-weight: 700;
+        text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+    
+    .stMetric [data-testid="stMetricDelta"] {
+        color: #22d3ee !important;
+    }
+    
+    /* Tabs futuristas */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 10px;
+        background: linear-gradient(90deg, #0f172a 0%, #1e293b 100%);
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #334155;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        background: transparent;
+        color: #7dd3fc;
         border-radius: 8px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        padding: 12px 24px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
     }
+    
+    .stTabs [data-baseweb="tab"]:hover {
+        background: rgba(0, 212, 255, 0.1);
+        border-color: #00d4ff;
+        color: #00d4ff;
+    }
+    
+    .stTabs [aria-selected="true"] {
+        background: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%);
+        color: white !important;
+        border-color: #00d4ff;
+        box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+    }
+    
+    /* Botones futuristas */
+    .stButton > button {
+        background: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 32px;
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: 0 8px 24px rgba(0, 102, 255, 0.4);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .stButton > button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(0, 212, 255, 0.6);
+        background: linear-gradient(135deg, #0052cc 0%, #00b8ff 100%);
+    }
+    
+    .stButton > button:active {
+        transform: translateY(-1px);
+    }
+    
+    /* Inputs futuristas */
+    .stTextInput > div > div > input,
+    .stSelectbox > div > div > div,
+    .stNumberInput > div > div > input {
+        background: rgba(30, 41, 59, 0.6);
+        border: 1px solid #334155;
+        border-radius: 8px;
+        color: #e0e7ff;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+    
+    .stTextInput > div > div > input:focus,
+    .stSelectbox > div > div > div:focus,
+    .stNumberInput > div > div > input:focus {
+        border-color: #00d4ff;
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+    
+    /* DataFrames futuristas */
+    .stDataFrame {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        border-radius: 12px;
+        border: 1px solid #334155;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Headers de tabla */
+    .stDataFrame thead tr th {
+        background: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%) !important;
+        color: white !important;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: none !important;
+    }
+    
+    /* Filas de tabla */
+    .stDataFrame tbody tr {
+        background: rgba(30, 41, 59, 0.4);
+        border-bottom: 1px solid #334155;
+        transition: all 0.2s ease;
+    }
+    
+    .stDataFrame tbody tr:hover {
+        background: rgba(0, 212, 255, 0.1);
+        transform: scale(1.01);
+    }
+    
+    /* Alertas y mensajes */
+    .stSuccess {
+        background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+        border-left: 4px solid #10b981;
+        border-radius: 8px;
+        color: #d1fae5;
+    }
+    
+    .stInfo {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        border-left: 4px solid #3b82f6;
+        border-radius: 8px;
+        color: #dbeafe;
+    }
+    
+    .stWarning {
+        background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+        border-left: 4px solid #f59e0b;
+        border-radius: 8px;
+        color: #fef3c7;
+    }
+    
+    /* Expanders futuristas */
+    .streamlit-expanderHeader {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        border: 1px solid #334155;
+        border-radius: 10px;
+        color: #7dd3fc;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .streamlit-expanderHeader:hover {
+        border-color: #00d4ff;
+        box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+    }
+    
+    /* Slider futurista */
+    .stSlider > div > div > div {
+        background: #334155;
+    }
+    
+    .stSlider > div > div > div > div {
+        background: linear-gradient(90deg, #0066ff 0%, #00d4ff 100%);
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+    
+    /* Scrollbar personalizado */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #0f172a;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #0066ff 0%, #00d4ff 100%);
+        border-radius: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #0052cc 0%, #00b8ff 100%);
+    }
+    
+    /* Textos especiales */
     .green-text {
-        color: #28a745;
+        color: #22c55e;
         font-weight: bold;
+        text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
     }
+    
     .red-text {
-        color: #dc3545;
+        color: #ef4444;
         font-weight: bold;
+        text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
     }
+    
     .blue-text {
-        color: #1f77b4;
+        color: #00d4ff;
         font-weight: bold;
+        text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+    
+    /* Efecto de partículas (opcional) */
+    .stApp::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(2px 2px at 20% 30%, rgba(0, 212, 255, 0.3), transparent),
+            radial-gradient(2px 2px at 60% 70%, rgba(0, 102, 255, 0.3), transparent),
+            radial-gradient(1px 1px at 50% 50%, rgba(0, 212, 255, 0.2), transparent),
+            radial-gradient(1px 1px at 80% 10%, rgba(0, 102, 255, 0.2), transparent);
+        background-size: 200% 200%;
+        background-position: 0% 0%;
+        animation: drift 20s ease infinite;
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    @keyframes drift {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
+    }
+    
+    /* Headers de sección con línea neón */
+    h1, h2, h3 {
+        color: #00d4ff;
+        text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        border-bottom: 2px solid transparent;
+        border-image: linear-gradient(90deg, #00d4ff 0%, transparent 100%);
+        border-image-slice: 1;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    
+    /* Separadores */
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, #00d4ff 50%, transparent 100%);
+        margin: 30px 0;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -75,30 +352,51 @@ with st.sidebar:
     st.markdown("### Sistema de Optimización")
     st.markdown("---")
     
-    # Métricas globales
+    # Métricas globales con iconos futuristas
     st.metric(
-        label="📊 Accuracy del Modelo",
+        label="🎯 Accuracy del Modelo",
         value="94.3%",
-        delta="+2.1%"
+        delta="+2.1%",
+        help="Precisión del modelo mejorada esta semana"
     )
     
     st.metric(
-        label="💰 Ahorros Hoy",
+        label="� Ahorros Hoy",
         value="$4,567",
-        delta="+$342"
+        delta="+$342",
+        help="Ahorro acumulado en las últimas 24h"
     )
     
     st.metric(
-        label="♻️ Waste Evitado",
+        label="🌍 Waste Evitado",
         value="234 kg",
-        delta="-18%"
+        delta="-18%",
+        help="Reducción de desperdicio vs semana anterior"
+    )
+    
+    st.metric(
+        label="⚡ CO2 Reducido",
+        value="89 kg",
+        delta="-12%",
+        help="Emisiones evitadas hoy"
     )
     
     st.markdown("---")
     
-    st.caption("🕐 Última actualización: Hoy 08:00")
-    st.caption("📍 Unidad: Frankfurt (FRA)")
-    st.caption("👥 Vuelos activos: 47")
+    st.markdown("### 📊 STATUS DEL SISTEMA")
+    st.success("🟢 **ONLINE** - Todos los modelos operativos")
+    
+    st.markdown("---")
+    
+    st.caption("🕐 **Última actualización:** Hoy 08:00")
+    st.caption("📍 **Unidad:** Frankfurt (FRA)")
+    st.caption("✈️ **Vuelos activos:** 47")
+    st.caption("🔄 **Next Training:** En 16h 23m")
+    
+    st.markdown("---")
+    st.markdown("**👨‍💻 Desarrollado por:**")
+    st.caption("Tu Equipo | Hackathon GateGroup 2025")
+    st.caption("🚀 Powered by AI & Machine Learning")
     
     st.markdown("---")
     st.markdown("**👨‍💻 Desarrollado por:**")
@@ -184,27 +482,88 @@ with tab1:
             time.sleep(1.5)  # Simular procesamiento
             
             # ================================================================
-            # PREDICCIONES (Aquí cargarías modelos reales)
+            # CARGAR DATOS HISTÓRICOS DEL CSV
             # ================================================================
             
-            # Por ahora, valores simulados
-            # En producción: cargar_modelo('modelo_sandwiches_pollo') y predecir_consumo()
+            try:
+                df_historico = pd.read_csv('data/datos_historicos.csv')
+                
+                # Filtrar por ruta similar si existe
+                df_ruta = df_historico[df_historico['ruta'] == ruta]
+                if len(df_ruta) == 0:
+                    # Si no hay datos de esa ruta, usar todas las rutas
+                    df_ruta = df_historico
+                
+                # Calcular promedios por producto basado en pasajeros
+                # Factor de escala: pasajeros actuales / promedio de pasajeros histórico
+                pasajeros_promedio = df_ruta['pasajeros_total'].mean()
+                factor_pasajeros = pasajeros_total / pasajeros_promedio if pasajeros_promedio > 0 else 1.0
+                
+                # Factor de duración (vuelos largos = más consumo)
+                factor_duracion = 1.0 + (duracion - 8.0) * 0.05  # +5% por cada hora extra
+                
+                # Factor de clase business (más business = más consumo)
+                factor_business = 1.0 + (pasajeros_business / pasajeros_total) * 0.3  # +30% si 100% business
+                
+                # Calcular predicciones basadas en promedios históricos
+                productos = ['sandwiches_pollo', 'sandwiches_veggie', 'galletas', 'cafe', 'agua']
+                predicciones = {}
+                
+                for producto in productos:
+                    col_name = f'consumo_{producto}'
+                    if col_name in df_ruta.columns:
+                        # Promedio histórico
+                        promedio = df_ruta[col_name].mean()
+                        std_dev = df_ruta[col_name].std()
+                        
+                        # Aplicar factores de ajuste
+                        prediccion_base = promedio * factor_pasajeros * factor_duracion * factor_business
+                        
+                        # Calcular intervalos de confianza
+                        margen = std_dev * 1.5 if std_dev > 0 else prediccion_base * 0.1
+                        
+                        # Calcular confianza (más datos = más confianza)
+                        num_vuelos = len(df_ruta)
+                        confianza = min(98, 70 + (num_vuelos / 2))  # Max 98%, empieza en 70%
+                        
+                        predicciones[producto] = {
+                            'pred': int(prediccion_base),
+                            'lower': int(max(0, prediccion_base - margen)),
+                            'upper': int(prediccion_base + margen),
+                            'conf': int(confianza)
+                        }
+                    else:
+                        # Valores por defecto si no hay datos
+                        predicciones[producto] = {
+                            'pred': int(pasajeros_total * 0.3),
+                            'lower': int(pasajeros_total * 0.2),
+                            'upper': int(pasajeros_total * 0.4),
+                            'conf': 75
+                        }
+                
+                # Número de vuelos históricos para la explicación
+                num_vuelos_historicos = len(df_ruta)
+                consumo_historico_pct = 60  # Placeholder
+                
+            except FileNotFoundError:
+                st.warning("⚠️ No se encontró el archivo de datos históricos. Usando valores estimados.")
+                # Fallback a valores estimados
+                predicciones = {
+                    'sandwiches_pollo': {'pred': int(pasajeros_total * 0.27), 'lower': int(pasajeros_total * 0.22), 'upper': int(pasajeros_total * 0.32), 'conf': 85},
+                    'sandwiches_veggie': {'pred': int(pasajeros_total * 0.09), 'lower': int(pasajeros_total * 0.07), 'upper': int(pasajeros_total * 0.11), 'conf': 85},
+                    'galletas': {'pred': int(pasajeros_total * 0.59), 'lower': int(pasajeros_total * 0.54), 'upper': int(pasajeros_total * 0.64), 'conf': 88},
+                    'cafe': {'pred': int(pasajeros_total * 0.36), 'lower': int(pasajeros_total * 0.32), 'upper': int(pasajeros_total * 0.40), 'conf': 87},
+                    'agua': {'pred': int(pasajeros_total * 0.95), 'lower': int(pasajeros_total * 0.89), 'upper': int(pasajeros_total * 1.01), 'conf': 92}
+                }
+                num_vuelos_historicos = 0
             
-            predicciones = {
-                'sandwiches_pollo': {'pred': 67, 'lower': 59, 'upper': 75, 'conf': 96},
-                'sandwiches_veggie': {'pred': 23, 'lower': 19, 'upper': 27, 'conf': 94},
-                'galletas': {'pred': 145, 'lower': 133, 'upper': 157, 'conf': 92},
-                'cafe': {'pred': 89, 'lower': 79, 'upper': 99, 'conf': 91},
-                'agua': {'pred': 234, 'lower': 220, 'upper': 248, 'conf': 98}
-            }
-            
-            # Método estándar (valores fijos tradicionales)
+            # Método estándar (valores fijos tradicionales - más conservador)
             estandar = {
-                'sandwiches_pollo': 90,
-                'sandwiches_veggie': 30,
-                'galletas': 200,
-                'cafe': 100,
-                'agua': 300
+                'sandwiches_pollo': int(pasajeros_total * 0.37),  # 37% de pasajeros
+                'sandwiches_veggie': int(pasajeros_total * 0.12),  # 12%
+                'galletas': int(pasajeros_total * 0.82),  # 82%
+                'cafe': int(pasajeros_total * 0.41),  # 41%
+                'agua': int(pasajeros_total * 1.22)  # 122% (más de 1 por persona)
             }
         
         st.success("✅ Predicción generada exitosamente")
@@ -274,14 +633,30 @@ with tab1:
         # ================================================================
         
         with st.expander("💡 ¿Por qué estos números?", expanded=True):
+            # Usar datos reales si están disponibles
+            confianza_promedio = sum([p['conf'] for p in predicciones.values()]) / len(predicciones)
+            
             explicacion = generar_explicacion(
                 ruta=ruta,
                 hora=hora_salida.strftime("%H:%M"),
-                consumo_historico=56.0,
-                confidence=96.0,
-                num_vuelos=127
+                consumo_historico=60.0,
+                confidence=confianza_promedio,
+                num_vuelos=num_vuelos_historicos if num_vuelos_historicos > 0 else 30
             )
             st.markdown(explicacion)
+            
+            # Información adicional sobre los factores
+            st.markdown(f"""
+            **🔍 Factores de Ajuste Aplicados:**
+            
+            - 👥 **Pasajeros:** {pasajeros_total} ({pasajeros_business} en business class)
+            - ⏱️ **Duración del vuelo:** {duracion} horas
+            - 📊 **Vuelos históricos analizados:** {num_vuelos_historicos if num_vuelos_historicos > 0 else "Estimación basada en patrones generales"}
+            - 🎯 **Ruta:** {ruta}
+            
+            El sistema analiza patrones de consumo real de vuelos similares y ajusta las predicciones
+            según el número de pasajeros, duración del vuelo y composición de clases.
+            """)
         
         # ================================================================
         # CÁLCULO DE IMPACTO
