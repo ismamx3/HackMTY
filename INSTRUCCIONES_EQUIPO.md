@@ -28,15 +28,15 @@ cd HackMTY
 
 ### **Documentación completa:**
 - 📖 `README.md` - Documentación principal
-- 📖 `GUIA_RAPIDA.md` - Setup en 3 minutos
-- 📖 `CHECKLIST_FINAL.md` - Checklist pre-hackathon
-- 📖 `COMO_FUNCIONA_NEXUS.md` - ⭐ **NUEVO** - Explicación técnica completa
-- 📖 `PRUEBAS_EXTREMAS.md` - ⭐ **NUEVO** - 8 casos de prueba extremos
-- 📖 `RESUMEN_CAMBIOS.md` - ⭐ **NUEVO** - Resumen ejecutivo
+- 📖 `COMO_FUNCIONA_NEXUS.md` - ⭐ Explicación técnica completa
+- 📖 `PRUEBAS_EXTREMAS.md` - ⭐ 8 casos de prueba extremos
+- 📖 `ACTUALIZACION_DATOS_REALES.md` - ⭐ Cómo se usan los 615K registros
+- 📖 `INSTRUCCIONES_EQUIPO.md` - Este archivo
 
-### **Datos:**
-- 📊 `data/datos_historicos.csv` - Datos para las predicciones
-- 📊 `data/datos_historicos_ejemplo.csv` - Datos de ejemplo
+### **Datos (615K registros REALES):**
+- � `data/datos_historicos.csv` (86.6 MB) - 615,791 registros originales
+- ✅ `data/vuelos_agregados.csv` (5.22 MB) - 46,655 vuelos procesados
+- ✅ `data/estadisticas_rutas.csv` (0.14 MB) - 356 rutas con estadísticas
 
 ### **Carpetas:**
 - 📁 `models/` - Para modelos entrenados
@@ -189,24 +189,23 @@ Duración: 16h
 ## 📖 DOCUMENTACIÓN PARA LEER
 
 ### **PRIORIDAD ALTA:**
-1. **`COMO_FUNCIONA_NEXUS.md`** 
+1. **`ACTUALIZACION_DATOS_REALES.md`** ⭐
+   - Cómo se procesaron los 615K registros
+   - Qué cambió en el código
+   - Cómo funcionan las predicciones ahora
+   
+2. **`COMO_FUNCIONA_NEXUS.md`** 
    - Explicación completa del sistema
    - Análisis del output
    - Algoritmo paso a paso
    
-2. **`PRUEBAS_EXTREMAS.md`**
+3. **`PRUEBAS_EXTREMAS.md`**
    - 8 casos de prueba listos
    - Inputs y outputs esperados
 
-3. **`RESUMEN_CAMBIOS.md`**
-   - Qué cambió
-   - Por qué
-   - Cómo probarlo
-
 ### **PRIORIDAD MEDIA:**
-4. **`GUIA_RAPIDA.md`** - Setup rápido
-5. **`CHECKLIST_FINAL.md`** - Checklist pre-presentación
-6. **`README.md`** - Documentación completa
+4. **`INSTRUCCIONES_EQUIPO.md`** - Este archivo (setup y demo)
+5. **`README.md`** - Documentación completa
 
 ---
 
@@ -255,8 +254,8 @@ C:\ruta\a\HackMTY\.venv\Scripts\streamlit.exe run app.py
 # Verificar que existe
 dir data\datos_historicos.csv
 
-# Si no existe, copiar el de ejemplo
-Copy-Item data\datos_historicos_ejemplo.csv data\datos_historicos.csv
+# Debe mostrar: 86.6 MB (615K registros)
+# Si no existe, necesitas el archivo result_hack_oficial.csv
 ```
 
 ### **Problema: Errores de importación**
