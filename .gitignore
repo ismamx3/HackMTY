@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+venv/
+*.pkl
+.DS_Store
+.streamlit/
+outputs/*.html
+outputs/*.png
